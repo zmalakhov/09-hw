@@ -1,0 +1,25 @@
+{
+"notes": [
+  {
+    "title": "First Note 1",
+    "descr": "Description for first note",
+    "importance": "important",
+    "date": "27.06.2020, 07:43:55",
+    "edit_mode": false
+  },
+  {
+    "title": "Second Note 2",
+    "descr": "Description for second note",
+    "importance": "regular",
+    "date": "27.06.2020, 07:43:55",
+    "edit_mode": false
+  },
+  {
+    "title": "Third Note 3",
+    "descr": "Description for third note",
+    "importance": "very-important",
+    "date": "27.06.2020, 07:43:55",
+    "edit_mode": false
+  }
+]
+}

@@ -34,6 +34,7 @@
 
                 <!--    note list-->
                 <notes :notes="notesFilter" :grid="grid" @remove="removeNote" />
+<!--                <notes :notes="allNotes" :grid="grid" @remove="removeNote" />-->
 
             </div>
         </section>
@@ -47,6 +48,8 @@
     import notes from '@/components/Notes.vue'
     import newNote from '@/components/NewNote.vue'
     import search from "@/components/Search.vue";
+
+    import {mapGetters, mapActions} from 'vuex'
 
     export default {
         components: {
@@ -92,8 +95,10 @@
             }
         },
         computed:{
+            ...mapGetters(['allNotes']),
             notesFilter(){
-                let array = this.notes, search = this.search
+                // let array = this.notes, search = this.search
+                let array = this.allNotes, search = this.search
                 if(!search) return array
                 // small
                 search = search.trim().toLowerCase()
@@ -108,6 +113,7 @@
             }
         },
         methods: {
+            ...mapActions(["fetchNotes"]),
             addNote() {
                 //console.log(this.note);
                 let {title, descr, importance} = this.note
@@ -135,7 +141,11 @@
             },
             finish_edit_mode(){
                 // this.notes.forEach(note => note.edit_mode = false)
-            }
+            },
+
+        },
+        async mounted() {
+            this.fetchNotes()
         }
     }
 </script>
