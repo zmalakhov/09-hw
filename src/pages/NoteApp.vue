@@ -119,7 +119,8 @@
 
             },
             removeNote(index){
-                this.notes.splice(index, 1)
+                // this.notes.splice(index, 1)
+                this.$store.dispatch('removeNote', index)
             },
             finish_edit_mode(){
                 // this.notes.forEach(note => note.edit_mode = false)

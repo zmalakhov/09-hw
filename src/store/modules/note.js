@@ -8,6 +8,9 @@ export default {
         },
         addNote(state, newNote){
             state.notes.push(newNote)
+        },
+        removeNote(state, index){
+            state.notes.splice(index, 1)
         }
     },
     actions: {
@@ -18,6 +21,9 @@ export default {
         },
         addNote(ctx, newNote){
             ctx.commit("addNote", newNote)
+        },
+        removeNote(ctx, index){
+            ctx.commit("removeNote", index)
         }
     },
     getters: {
