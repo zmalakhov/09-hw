@@ -1,10 +1,5 @@
 <template>
     <div class="wrapper-content wrapper-content--fixed">
-<!--        <section>-->
-<!--            <div class="container">-->
-<!--                <h1>example page</h1>-->
-<!--            </div>-->
-<!--        </section>-->
 
         <section>
             <div class="container">
@@ -69,29 +64,6 @@
                     edit_mode: false,
                 },
                 // importances: ['regular', 'important', 'very-important'],
-                notes: [
-                    {
-                        title: 'First Note',
-                        descr: 'Description for first note',
-                        importance: 'important',
-                        date: new Date(Date.now()).toLocaleString(),
-                        edit_mode: false,
-                    },
-                    {
-                        title: 'Second Note',
-                        descr: 'Description for second note',
-                        importance: 'regular',
-                        date: new Date(Date.now()).toLocaleString(),
-                        edit_mode: false,
-                    },
-                    {
-                        title: 'Third Note',
-                        descr: 'Description for third note',
-                        importance: 'very-important',
-                        date: new Date(Date.now()).toLocaleString(),
-                        edit_mode: false,
-                    }
-                ]
             }
         },
         computed:{
@@ -123,14 +95,24 @@
                     return false
                 }
 
-                this.notes.push({
-                    // если ключ и значение совпадают, то можно писать только ключ
-                    //title: title,
+                let newNote = {
                     title,
                     descr,
                     importance,
                     date: new Date(Date.now()).toLocaleString()
-                })
+                }
+
+                // this.notes.push({
+                //     // если ключ и значение совпадают, то можно писать только ключ
+                //     //title: title,
+                //     title,
+                //     descr,
+                //     importance,
+                //     date: new Date(Date.now()).toLocaleString()
+                // })
+
+                this.$store.dispatch('addNote', newNote)
+
                 this.message = null
                 this.note.title = ''
                 this.note.descr = ''

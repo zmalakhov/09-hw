@@ -6,15 +6,18 @@ export default {
         updateNotes(state, notes){
             state.notes = notes
         },
-        // createPost(state, newPost){
-        //     state.posts.unshift(newPost)
-        // }
+        addNote(state, newNote){
+            state.notes.push(newNote)
+        }
     },
     actions: {
         async fetchNotes(ctx){
             const res = await require('./Notes');
             // console.log(res);
             ctx.commit('updateNotes', res.notes)
+        },
+        addNote(ctx, newNote){
+            ctx.commit("addNote", newNote)
         }
     },
     getters: {
