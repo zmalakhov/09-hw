@@ -90,12 +90,14 @@
             },
             saveNote(index){
                 if (this.titleNew.length > 0){
-                    this.notes[index].title = this.titleNew
+                    //this.notes[index].title = this.titleNew
+                    this.$store.dispatch('setTitleNote', {index, str: this.titleNew})
                     this.titleNew = ''
                     this.notes[index].titleEdit = false
                 }
                 if (this.descrNew.length > 0){
-                    this.notes[index].descr = this.descrNew
+                    // this.notes[index].descr = this.descrNew
+                    this.$store.dispatch('setDescrNote', {index, str: this.descrNew})
                     this.descrNew = ''
                     this.notes[index].descrEdit = false
                 }

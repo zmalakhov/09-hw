@@ -11,6 +11,14 @@ export default {
         },
         removeNote(state, index){
             state.notes.splice(index, 1)
+        },
+        setTitleNote(state, payload){
+            let {index, str} = payload
+            state.notes[index].title = str
+        },
+        setDescrNote(state, payload){
+            let {index, str} = payload
+            state.notes[index].descr = str
         }
     },
     actions: {
@@ -24,6 +32,14 @@ export default {
         },
         removeNote(ctx, index){
             ctx.commit("removeNote", index)
+        },
+        setTitleNote(ctx, payload){
+            let {index, str} = payload
+            ctx.commit("setTitleNote", {index,str})
+        },
+        setDescrNote(ctx, payload){
+            let {index, str} = payload
+            ctx.commit("setDescrNote", {index,str})
         }
     },
     getters: {
