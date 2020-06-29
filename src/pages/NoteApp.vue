@@ -6,7 +6,7 @@
                 <!--message-->
                 <message v-if="message" :message="message" />
 
-                <!--    new note-->
+                <!--new note-->
                 <newNote :note="note" @addNote="addNote" />
 
                 <div class="note-header" style="margin: 36px 0">
@@ -27,9 +27,8 @@
                     </div>
                 </div>
 
-                <!--    note list-->
+                <!--note list-->
                 <notes :notes="notesFilter" :grid="grid" @remove="removeNote" />
-<!--                <notes :notes="allNotes" :grid="grid" @remove="removeNote" />-->
 
             </div>
         </section>
@@ -63,7 +62,6 @@
                     importance: 'regular',
                     edit_mode: false,
                 },
-                // importances: ['regular', 'important', 'very-important'],
             }
         },
         computed:{
@@ -102,15 +100,6 @@
                     date: new Date(Date.now()).toLocaleString()
                 }
 
-                // this.notes.push({
-                //     // если ключ и значение совпадают, то можно писать только ключ
-                //     //title: title,
-                //     title,
-                //     descr,
-                //     importance,
-                //     date: new Date(Date.now()).toLocaleString()
-                // })
-
                 this.$store.dispatch('addNote', newNote)
 
                 this.message = null
@@ -119,7 +108,6 @@
 
             },
             removeNote(index){
-                // this.notes.splice(index, 1)
                 this.$store.dispatch('removeNote', index)
             },
             finish_edit_mode(){
